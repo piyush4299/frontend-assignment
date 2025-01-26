@@ -7,21 +7,17 @@ const Pagination = ({ recordsPerPage, totalRecords, paginate, currentPage }) => 
   // Always show the first page
   pageNumbers.push(1);
 
-  // Show pages around the current page
   const startPage = Math.max(2, currentPage - 2);
   const endPage = Math.min(totalPages - 1, currentPage + 2);
 
-  // Add ellipsis if there are hidden pages between the first page and the start page
   if (startPage > 2) {
     pageNumbers.push('...');
   }
 
-  // Add pages around the current page
   for (let i = startPage; i <= endPage; i++) {
     pageNumbers.push(i);
   }
 
-  // Add ellipsis if there are hidden pages between the end page and the last page
   if (endPage < totalPages - 1) {
     pageNumbers.push('...');
   }
@@ -38,7 +34,7 @@ const Pagination = ({ recordsPerPage, totalRecords, paginate, currentPage }) => 
           onClick={() => paginate(currentPage - 1)}
           disabled={currentPage === 1}
         >
-          Previous
+          Prev
         </button>
         {pageNumbers.map((number, index) =>
           number === '...' ? (
